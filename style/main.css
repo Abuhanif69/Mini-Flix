@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* { 
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  margin: 0;
+  background: #111;
+  color: #fff;
+}
+
+/* NAV BUTTON */
+.nav-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 2000;
+  color: white;
+}
+
+/* NAVIGATION */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobile-nav.is-open { 
+  transform: translateX(0); 
+}
+
+.mobile-nav__black { 
+  background: rgb(34, 31, 31); 
+  width: 60%; 
+  max-width: 480px; 
+  min-width: 320px; 
+  height: 100vh; 
+}
+
+.mobile-nav__red { 
+  background: rgb(229, 9, 20); 
+  width: 95%; 
+  height: 100vh; 
+}
+
+.mobile-nav__white { 
+  background: #fff; 
+  width: 95%; 
+  height: 100vh; 
+  padding: 40px; 
+  position: relative; color: #111; 
+}
+
+.nav-close { 
+  position: absolute; 
+  top: 30px; 
+  right: 30px; 
+  border: none; 
+  background: transparent; 
+  font-size: 22px; 
+  cursor: pointer; 
+}
+
+.nav-title { 
+  margin-top: 40px; 
+}
+
+.nav-list { 
+  list-style: none; 
+  padding: 0; 
+}
+
+.nav-list li { 
+  margin: 20px 0; 
+}
+
+.nav-list button { 
+  background: none; 
+  border: none; 
+  font-size: 16px; 
+  cursor: pointer; 
+  text-transform: uppercase; 
+}
+
+/* MAIN CONTENT */
+.content { 
+  padding: 80px 20px; 
+}
+
+.page-title { 
+  margin-bottom: 20px; 
+}
+
+/* SEARCH BAR */
+.search-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px 0 0 6px;
+  border: none;
+  font-size: 14px;
+}
+
+#searchBtn {
+  padding: 10px 15px;
+  border: none;
+  background-color: #e50914;
+  color: #fff;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#searchBtn:hover { 
+  background-color: #f6121d; 
+}
+
+/* ERROR MESSAGE */
+.error-message { 
+  color: #f6121d; 
+  font-size: 14px; 
+  margin-bottom: 15px; 
+  display: none; 
+}
+
+/* LOADING SPINNER */
+.loading-spinner { 
+  display: none; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100px; 
+  margin-bottom: 20px; 
+}
+
+.spinner { 
+  border: 6px solid #f3f3f3; 
+  border-top: 6px solid #e50914; 
+  border-radius: 50%; 
+  width: 40px; 
+  height: 40px; 
+  animation: spin 1s linear infinite; 
+}
+
+@keyframes spin { 
+  0% { 
+    transform: rotate(0deg); 
+  } 100% { 
+    transform: rotate(360deg); 
+  } 
+}
+
+/* MOVIE GRID */
+.movies { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+  gap: 20px; 
+}
+
+/* MOVIE CARD */
+.movie { 
+  position: relative; 
+  background: #222; 
+  border-radius: 6px; 
+  overflow: hidden; 
+  cursor: pointer; 
+  transition: transform 0.2s; 
+}
+
+.movie:hover { 
+  transform: scale(1.05); 
+}
+
+/* Hover overlay */
+.movie-info-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 15px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.movie:hover .movie-info-overlay { 
+  opacity: 1; 
+}
+
+.movie-info-overlay h3 { 
+  margin: 0 0 5px; 
+  font-size: 14px; 
+}
+
+.movie-info-overlay p { 
+  font-size: 12px; 
+  line-height: 1.2; 
+  max-height: 60%; 
+  overflow: hidden; 
+}
+
+.movie img { 
+  width: 100%; 
+  aspect-ratio: 2 / 3; 
+  object-fit: cover; 
+}
+
+/* MODAL */
+.movie-modal { 
+  display: none; 
+  position: fixed; 
+  z-index: 3000; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.8); 
+}
+
+.movie-modal-content {
+  background-color: #111;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  color: #fff;
+  border-radius: 8px;
+  position: relative;
+}
+
+.movie-modal-close { 
+  position: absolute; 
+  top: 10px; 
+  right: 15px; 
+  color: #fff; 
+  font-size: 24px; 
+  cursor: pointer; 
+}
+
+.movie-modal img { 
+  width: 100%; 
+  margin-bottom: 15px; 
+}

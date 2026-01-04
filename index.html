@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniFlix</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+
+  <!-- Open Nav Button -->
+  <button class="nav-toggle" aria-label="Open navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- NAVIGATION -->
+  <nav class="mobile-nav" data-nav>
+    <div class="mobile-nav__black">
+      <div class="mobile-nav__red">
+        <div class="mobile-nav__white">
+
+          <button class="nav-close" aria-label="Close navigation">
+            <i class="fas fa-times"></i>
+          </button>
+
+          <h2 class="nav-title">Browse</h2>
+
+          <ul class="nav-list">
+            <li><button data-category="popular">Popular</button></li>
+            <li><button data-category="top_rated">Top Rated</button></li>
+            <li><button data-category="upcoming">Upcoming</button></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <h1 class="page-title">Popular Movies</h1>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search for a movie..." />
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <!-- ERROR MESSAGE -->
+    <p id="errorMessage" class="error-message"></p>
+
+    <!-- LOADING SPINNER -->
+    <div id="loadingSpinner" class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- MOVIE GRID -->
+    <div class="movies" id="movies">
+      <!-- Movie cards injected here -->
+    </div>
+  </main>
+
+  <!-- MOVIE MODAL -->
+  <div class="movie-modal" id="movieModal">
+    <div class="movie-modal-content">
+      <span class="movie-modal-close">&times;</span>
+      <img src="" alt="" id="modalPoster">
+      <h2 id="modalTitle"></h2>
+      <p id="modalOverview"></p>
+      <p id="modalRelease"></p>
+      <p id="modalVote"></p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script/main.js"></script>
+</body>
+</html>
