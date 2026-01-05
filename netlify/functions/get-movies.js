@@ -11,7 +11,7 @@ const moviesEl = document.getElementById('movies');
 const pageTitle = document.querySelector('.page-title');
 const categoryButtons = document.querySelectorAll('[data-category]');
 
-// == NAV CONTROLS ==
+//NAV CONTROLS 
 openBtn.addEventListener('click', () => {
   nav.classList.add('is-open');
 });
@@ -20,7 +20,7 @@ closeBtn.addEventListener('click', () => {
   nav.classList.remove('is-open');
 });
 
-// == FETCH MOVIES ==
+//  FETCH MOVIES 
 async function fetchMovies(category) {
   try {
     const res = await fetch(
@@ -33,7 +33,7 @@ async function fetchMovies(category) {
   }
 }
 
-// ===== DISPLAY MOVIES =====
+// DISPLAY MOVIES 
 function showMovies(movies) {
   moviesEl.innerHTML = '';
 
@@ -57,7 +57,7 @@ function showMovies(movies) {
   });
 }
 
-// ===== CATEGORY CLICK =====
+// CATEGORY CLICK 
 categoryButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const category = btn.dataset.category;
@@ -67,7 +67,7 @@ categoryButtons.forEach(btn => {
   });
 });
 
-// ===== LOAD DEFAULT =====
+// LOAD DEFAULT
 fetchMovies('popular');
 
 // MODAL ELEMENTS

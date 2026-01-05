@@ -1,9 +1,9 @@
-// ===== CONFIG =====
+// CONFIG
 const API_KEY = '71034be6716933659774eac4c597bdc6';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
-// ===== ELEMENTS =====
+// ELEMENTS
 const nav = document.querySelector('[data-nav]');
 const openBtn = document.querySelector('.nav-toggle');
 const closeBtn = document.querySelector('.nav-close');
@@ -27,15 +27,15 @@ const modalVote = document.getElementById('modalVote');
 // STORE CURRENT MOVIES
 let currentMovies = [];
 
-// ===== NAV CONTROLS =====
+// NAV CONTROLS
 openBtn.addEventListener('click', () => nav.classList.add('is-open'));
 closeBtn.addEventListener('click', () => nav.classList.remove('is-open'));
 
-// ===== SPINNER HELPERS =====
+// SPINNER HELPERS
 function showSpinner() { loadingSpinner.style.display = 'flex'; }
 function hideSpinner() { loadingSpinner.style.display = 'none'; }
 
-// ===== FETCH MOVIES =====
+// FETCH MOVIES
 async function fetchMovies(category) {
   showSpinner();
   try {
@@ -62,7 +62,7 @@ async function fetchMovies(category) {
   }
 }
 
-// ===== DISPLAY MOVIES =====
+// DISPLAY MOVIES
 function showMovies(movies) {
   moviesEl.innerHTML = '';
 
@@ -101,7 +101,7 @@ categoryButtons.forEach(btn => {
   });
 });
 
-// ===== SEARCH =====
+// SEARCH
 async function searchMovies(query) {
   if (!query) return;
   pageTitle.textContent = `Search: ${query}`;
@@ -142,7 +142,7 @@ searchInput.addEventListener('keydown', e => {
   }
 });
 
-// ===== MODAL =====
+// MODAL
 moviesEl.addEventListener('click', e => {
   const movieCard = e.target.closest('.movie');
   if (!movieCard) return;
@@ -162,5 +162,5 @@ moviesEl.addEventListener('click', e => {
 modalClose.addEventListener('click', () => modal.style.display = 'none');
 window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
 
-// ===== INITIAL LOAD =====
+// INITIAL LOAD
 fetchMovies('popular');
